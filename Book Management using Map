@@ -1,0 +1,39 @@
+bookdict = {}
+
+def insert(bid, bname, price, author):
+    bookdict[bid] = [bname, price, author]
+
+def delete(bid):
+    del bookdict[bid]
+    
+def search(bid):
+    for i in bookdict.keys():
+        if i == bid:
+            return bookdict[i]
+
+def list_all():
+    for i in bookdict.keys():
+        print(bookdict[i])
+    
+task=1
+while(task!=0):
+    print("-------------------------------------------------");
+    print("0. Exit");
+    print("1. Insert a book");
+    print("2. Delete a book");
+    print("3. Search a book by bid");
+    print("4. List all the books");
+    print("--------------------------------------------------");
+    task=int(input("Enter your choice : "));
+    
+    if task == 1:
+        temp = input("Enter bid,bname, bprice, Author: ").split()
+        insert(int(temp[0]), temp[1], int(temp[2]), temp[3])
+    if task == 2:
+        temp = int(input("Enter bid to Delete: "))
+        delete(temp)
+    if task == 3:
+        temp = int(input("Enter bid to Search: "))
+        print(search(temp))
+    if task == 4:
+        list_all()
