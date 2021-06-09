@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+class WordFrequency {
+    public static void main(String ar[])
+    {
+        Scanner sc = new Scanner(System.in);
+        String str, letter;
+        System.out.println("Enter String :");
+        str = sc.nextLine();
+
+        System.out.println("Enter Word for which you want to find frequency : ");
+        letter = sc.nextLine();
+
+        String str1 = str.toLowerCase() + ".";
+        String st[] = str1.split(letter);
+
+        System.out.println("Frequency of '" + letter +  "' is : " + (st.length - 1));
+    }
+}
