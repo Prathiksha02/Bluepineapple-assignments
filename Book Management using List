@@ -1,0 +1,52 @@
+book = []
+def insert(bid, bname, price, author):
+    book.append([bid, bname, price, author])
+
+def delete(bid):
+    for i in range(len(book)):
+        if(book[i][0] == id):
+            book.pop(i)
+            break
+
+def search(bid1=None, bname=None, author=None):
+    if bid1 is not None:
+        for i in book:
+            if i[0] == bid1:
+                return i
+    
+    if bname is not None:
+        for i in book:
+            if i[1] == bname:
+                return i
+        
+    if author is not None:
+        for i in book:
+            if i[3] == author:
+                return i
+                
+def list_all():
+    for i in book:
+        print(i[0], i[1], i[2], i[3])
+
+task=1
+while(task!=0):
+    print("-----------------------------------------------");
+    print("0. Exit");
+    print("1. Insert a book");
+    print("2. Delete a book");
+    print("3. Search a book by bid");
+    print("4. List all the books");
+    print("------------------------------------------------");
+    task=int(input("Enter your choice : "));
+   
+    if task == 1:
+        temp = input("Enter bid, bname, Price, Author: ").split()
+        insert(int(temp[0]), temp[1], int(temp[2]), temp[3])
+    if task == 2:
+        temp = int(input("Enter bid to Delete: "))
+        delete(temp)
+    if task == 3:
+        temp = int(input("Enter bid to Search: "))
+        print(search(bid1=temp)) 
+    if task == 4:
+        list_all()
