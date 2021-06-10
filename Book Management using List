@@ -19,11 +19,6 @@ def search(bid1=None, bname=None, author=None):
             if i[1] == bname:
                 return i
         
-    if author is not None:
-        for i in book:
-            if i[3] == author:
-                return i
-                
 def list_all():
     for i in book:
         print(i[0], i[1], i[2], i[3])
