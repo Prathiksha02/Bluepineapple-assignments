@@ -1,0 +1,16 @@
+def main(str1, str2):
+    if '*' in str2:
+        idx = str2.find('*')
+        if str2[:(idx)] in str1:
+            return str1[str1.find(str2[:idx]):]
+        else:
+            return "null"
+    if '?' in str2:
+        import re as regex
+        str2 = str2.replace('?', '.')
+        x = regex.findall(str2, str1)
+        return ','.join(x) if len(x) > 0 else "null"
+
+
+print("the matched string is")
+print(main("abcaqc", "a?c"))
