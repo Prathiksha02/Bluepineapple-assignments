@@ -1,0 +1,36 @@
+import java.util.*;
+
+class ReversePolish {
+    public static int RPN(String[] tokens) {
+        Stack<Integer> s = new Stack<Integer>();
+        for(String ch : tokens){
+            if(ch.equals("+")){
+                int num1 = s.pop();
+                int num2 = s.pop();
+                s.push(num1+num2);
+            }else if(ch.equals("-")){
+                int num1 = s.pop();
+                int num2 = s.pop();
+                s.push(num2-num1);
+            }else if(ch.equals("*")){
+                int num1 = s.pop();
+                int num2 = s.pop();
+                s.push(num1*num2);
+            }else if(ch.equals("/")){
+                int num1 = s.pop();
+                int num2 = s.pop();
+                s.push(num2/num1);
+            }else{
+                s.push(Integer.parseInt(ch));
+            }
+        }
+        return s.pop();
+    }
+
+    public static void main(String[] args)
+     {
+        System.out.println("The output is");
+        String[] tokens = new String[] { "3", "1", "+", "5", "*","3" , "-"};
+		System.out.println(RPN(tokens));
+    }
+}
